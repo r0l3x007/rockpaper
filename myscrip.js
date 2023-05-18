@@ -5,84 +5,70 @@ function getComputerChoice(){
     return choices[randomChoice];
 }
 
-//calls gets user inputs and returs it in lower case for accurate comparasion
-function getUserInput(){
-let userInput = prompt("Choose your weapon!");
-if(userInput.toLowerCase() === "rock" || userInput.toLowerCase() === "paper" || userInput.toLowerCase() === "scissors"){
-    alert(`your choice is ${userInput}`);
-    return userInput.toLowerCase();
-} else {
-    alert("Wrong weapon!");
-}
-}
-
 //checking to make sure inputs arre correctly taken
-let playerSelection = getUserInput();
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playerSelection);
+let playerSelection 
+let computerSelection
+let userScore = 0;
+let computerScore = 0;
+//console.log(computerSelection);
+//console.log(playerSelection);
 
 
 function playGame(playerSelection,computerSelection){
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
-    
+    playerSelection = prompt("Choose your weapon!",''.toLowerCase());
+    computerSelection = getComputerChoice().toLowerCase();
+    console.log(playerSelection);
+    console.log(computerSelection);
+
     if(playerSelection === computerSelection){
-        /*let tie = "Nobody wins its a tie!"
-        userScore++;
-        computerScore++
-        console.log(userScore);
-        console.log(computerScore);*/
-        return null ;
+        alert("Nobody wins its a tie!");
+        console.log(`your score ${userScore}`);
+        console.log(`computer score ${computerScore}`);
     }
     else if (playerSelection == 'rock' && computerSelection == 'scissors'){
-        /*let winCase1 = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
+        alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
         userScore++;
-        console.log(userScore);*/
-        return true;
+        console.log(`your score ${userScore}`);
+        console.log(`computer score ${computerScore}`);
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper'){
-        /*let winCase2 = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
+        alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
         userScore++;
-        console.log(userScore);*/
-        return true;
+        console.log(`your score ${userScore}`);
+        console.log(`computer score ${computerScore}`);
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock'){
-        /*let winCase3 = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
+        alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
         userScore++;
-        console.log(userScore);*/
-        return true;
+        console.log(`your score ${userScore}`);
+        console.log(`computer score ${computerScore}`);
     } else {
-        let lose = `Sorry you lose! ${computerSelection} beats ${playerSelection}`;
-        /*computerScore++;
-        console.log(computerScore);*/
-        return false;
+        alert(`Sorry you lose! ${computerSelection} beats ${playerSelection}`)
+        computerScore++;
+        console.log(`your score ${userScore}`);
+        console.log(`computer score ${computerScore}`);
     }
-    
-
-    
+        
 }
 
 //there needs to be 5 rounds in total
 //there has to be 2 scores kept in check and if it is a tie then adding it to each score
 //at the beginning of each round a new input needs to be made
 function game(){
-   let userScore = 0;
-   let computerScore = 0;
-   if (playGame(playerSelection,computerSelection) ===  true){
-    userScore++;
-    console.log(userScore);
-    console.log(computerScore);
-    console.log(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
-   } else if (playGame(playerSelection,computerSelection) === false){
-    computerScore++;
-    console.log(computerScore);
-    console.log(userScore);
-    console.log(`Sorry you lose! ${computerSelection} beats ${playerSelection}`);
-   } else {
-    console.log(userScore);
-    console.log(computerScore);
-    console.log("Nobody wins its a tie!");
+    let round = 0;
+
+    while(round < 5){
+        playGame(playerSelection,computerSelection);
+        round++;
+    }
+
+   if(round == 5 && userScore > computerScore){
+    console.log(`Congratulations you win`);
+   } else if (round == 5 && userScore < computerScore){
+    console.log(`Sorry you lose`);
+   } else{
+    console.log(`Oh wow it is actually a tie in the end impressive`)
    }
-    
+
+   return `The game has ended, in order to play again please refresh`;
 }
