@@ -15,7 +15,7 @@ let computerScore = 0;
 
 
 function playGame(playerSelection,computerSelection){
-    playerSelection = prompt("Choose your weapon!",''.toLowerCase());
+    //playerSelection = prompt("Choose your weapon!",''.toLowerCase());
     computerSelection = getComputerChoice().toLowerCase();
     console.log(playerSelection);
     console.log(computerSelection);
@@ -50,11 +50,25 @@ function playGame(playerSelection,computerSelection){
     }
         
 }
+//I have 3 buttons with 3 choices each
+//I need to assign the choice as a parameter in the playgame function
+
+document.getElementById(`rock`).addEventListener(`click`, function(){
+    playGame(`rock`, computerSelection);
+});
+
+document.getElementById(`scissors`).addEventListener(`click`, function(){
+    playGame(`scissors`, computerSelection);
+});
+
+document.getElementById(`paper`).addEventListener(`click`, function(){
+    playGame(`paper`, computerSelection);
+});
 
 //there needs to be 5 rounds in total
 //there has to be 2 scores kept in check and if it is a tie then adding it to each score
 //at the beginning of each round a new input needs to be made
-function game(){
+/*function game(){
     let round = 0;
 
     while(round < 5){
@@ -71,4 +85,4 @@ function game(){
    }
 
    return `The game has ended, in order to play again please refresh`;
-}
+}*/
