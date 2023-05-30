@@ -14,17 +14,15 @@ let computerScore = 0;
 //console.log(playerSelection);
 
 
-document.getElementById(`rock`).addEventListener(`click`, function(){
-    playGame(`rock`, computerSelection);
-});
 
-document.getElementById(`scissors`).addEventListener(`click`, function(){
-    playGame(`scissors`, computerSelection);
-});
+const choiceRock = document.getElementById(`rock`);
+choiceRock.addEventListener(`click`, chooseRock)
 
-document.getElementById(`paper`).addEventListener(`click`, function(){
-    playGame(`paper`, computerSelection);
-});
+const choiceScissors = document.getElementById(`scissors`);
+choiceScissors.addEventListener(`click`, chooseScissors);
+
+const choicePaper = document.getElementById(`paper`);
+choicePaper.addEventListener(`click`, choosePaper);
 
 
 const scores =  document.querySelector(`#score`);
@@ -82,12 +80,31 @@ function playGame(playerSelection,computerSelection){
 
     if (computerScore == 5 && computerScore > userScore){
         finalWin.textContent = `Sorry  the computer reached 5 first, you lose`;
+        choiceRock.removeEventListener(`click`, chooseRock);
+        choiceScissors.removeEventListener(`click`,chooseScissors);
+        choicePaper.removeEventListener(`click`,choosePaper);
+
     } else if  ( userScore == 5 &&  userScore > computerScore){
         finalWin.textContent = `Congratulations you reached 5 first, you win yeeey.`;
+        choiceRock.removeEventListener(`click`, chooseRock);
+        choiceScissors.removeEventListener(`click`,chooseScissors);
+        choicePaper.removeEventListener(`click`,choosePaper);
     }
+
 }
 
 
+function chooseRock(){
+    playGame(`rock`,computerSelection);
+}
+
+function choosePaper(){
+    playGame(`paper`, computerSelection);
+}
+
+function chooseScissors(){
+    playGame(`scissors`, computerSelection);
+}
 
 
 //there needs to be 5 rounds in total
