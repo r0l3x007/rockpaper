@@ -24,7 +24,10 @@ choiceScissors.addEventListener(`click`, chooseScissors);
 const choicePaper = document.getElementById(`paper`);
 choicePaper.addEventListener(`click`, choosePaper);
 
+document.getElementById(`kazumawon`).style.display = `none`;
+document.getElementById(`kazumalost`).style.display = `none`;
 
+//const choiceRock =  document.getElementById(`rock`, function ()
 const scores =  document.querySelector(`#score`);
 //if(scores){
 //scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
@@ -42,50 +45,57 @@ function playGame(playerSelection,computerSelection){
         /*alert("Nobody wins its a tie!");
         console.log(`your score ${userScore}`);
         console.log(`computer score ${computerScore}`);*/
+        document.getElementById(`kazumastart`).style.display = `none`;
         winners.textContent = `Nobody wins its a tie`;
-        scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
+        scores.textContent = `Your score is ${userScore} and mighty Kazumas  score is ${computerScore}`;
     }
     else if (playerSelection == 'rock' && computerSelection == 'scissors'){
        // alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
+       document.getElementById(`kazumastart`).style.display = `none`;
         userScore++;
        // console.log(`your score ${userScore}`);
         //console.log(`computer score ${computerScore}`);
         winners.textContent = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
-        scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
+        scores.textContent = `Your score is ${userScore} and mighty Kazumas score is ${computerScore}`;
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper'){
         //alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
+        document.getElementById(`kazumastart`).style.display = `none`;
         userScore++;
        // console.log(`your score ${userScore}`);
         //console.log(`computer score ${computerScore}`);
         winners.textContent = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
-        scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
+        scores.textContent = `Your score is ${userScore} and mighty Kazumas score is ${computerScore}`;
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock'){
         //alert(`Congratulations you win! ${playerSelection} beats ${computerSelection}`);
+        document.getElementById(`kazumastart`).style.display = `none`;
         userScore++;
         //console.log(`your score ${userScore}`);
        // console.log(`computer score ${computerScore}`);
        winners.textContent = `Congratulations you win! ${playerSelection} beats ${computerSelection}`;
-       scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
+       scores.textContent = `Your score is ${userScore} and mighty Kazumas score is ${computerScore}`;
     } else {
        // alert(`Sorry you lose! ${computerSelection} beats ${playerSelection}`)
+       document.getElementById(`kazumastart`).style.display = `none`;
         computerScore++;
        // console.log(`your score ${userScore}`);
        // console.log(`computer score ${computerScore}`);
        winners.textContent = `Sorry you lose! ${computerSelection} beats ${playerSelection}`;
-       scores.textContent = `Your score is ${userScore} and the computers score is ${computerScore}`;
+       scores.textContent = `Your score is ${userScore} and mighty Kazumas score is ${computerScore}`;
     }
 
 
     if (computerScore == 5 && computerScore > userScore){
-        finalWin.textContent = `Sorry  the computer reached 5 first, you lose`;
+        finalWin.textContent = `Hah I won there was no doubt about it, now stealu!`;
+        document.getElementById(`kazumawon`).style.display = `contents`;
         choiceRock.removeEventListener(`click`, chooseRock);
         choiceScissors.removeEventListener(`click`,chooseScissors);
         choicePaper.removeEventListener(`click`,choosePaper);
 
     } else if  ( userScore == 5 &&  userScore > computerScore){
-        finalWin.textContent = `Congratulations you reached 5 first, you win yeeey.`;
+        finalWin.textContent = `Impossible I never lose I never loseeeee, useless Aqua is at fault here for sure. Yameteeee.`;
+        document.getElementById(`kazumalost`).style.display = `contents`;
         choiceRock.removeEventListener(`click`, chooseRock);
         choiceScissors.removeEventListener(`click`,chooseScissors);
         choicePaper.removeEventListener(`click`,choosePaper);

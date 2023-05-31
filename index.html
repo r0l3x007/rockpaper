@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
     <title>Document</title>
 </head>
 <body>
+<div class = "outsidecont">
+    <div clas="container">
+        <p><span id="score">Moshi moshi Kazuma desu!! I never lost a game of rock, paper, scissors like ever. Choose your weapon
+            and prepare to taste defeat.
+        </span></p>
 
-    <p><span id="score">Please select a weapon in order to start the game</span></p>
+        <p><span id="winner">There is no winner  as the game did not start yet.</span></p>
 
-    <p><span id="winner">There is no winner  as the game did not start yet.</span></p>
+        <div class id = "kazumastart">
+        <img class = "kazumas" src = "images/Kazumabegin.png" alt="kazuma showing off">
+        </div>
+        <div class id = "kazumawon">
+            <img class = "kazumas" src = "images/KazumaWin.jpg" alt="kazuma celebrating with a friend">
+        </div>
+        <div class id = "kazumalost">
+            <img class = "kazumas" src = "images/Kazumalose.jpg" alt="kazuma screaming in tears">
+        </div>
+        <p><span id="finalWinner"></span></p>
+    </div>
+</div>
+    <div class="container2">
+        <button id="rock"><img class ="choices" src ="images/rockimg.png" alt = "Rock sign."></button>
+        <button id="scissors"><img class ="choices" src = "images/scissorsimg.png" alt = "Scissors sign"></button>
+        <button id="paper"><img class ="choices" src = "images/paperimg.png" alt = "Paper sign"></button>
+    </div>
 
-    <p><span id="finalWinner"></span></p>
-
-        <button id="rock"> Rock</button>
-        <button id="scissors">Scissors</button>
-        <button id="paper">Paper</button>
-   
     <script src="myscrip.js">
         </script>
 </body>
